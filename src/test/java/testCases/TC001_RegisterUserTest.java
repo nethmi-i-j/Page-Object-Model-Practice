@@ -22,7 +22,7 @@ public class TC001_RegisterUserTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get("");
+        driver.get("https://demo.guru99.com/test/newtours/index.php");
     }
 
     @Test
