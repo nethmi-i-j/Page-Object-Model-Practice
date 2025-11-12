@@ -12,14 +12,17 @@ public class HomePage {
     }
 
 
-    By registerBtnLocator = By.linkText("REGISTER");  //text between the <a> and </a> tags.
+    By registerBtnLocator = By.linkText("REGISTER");
+    By loginBtnLocator = By.linkText("SIGN-ON");    //text between the <a> and </a> tags.
 
     //public By registerBtnLocator = By.linkText("REGISTER");
 
     public void selectRegisterMenu(){
         driver.findElement(registerBtnLocator).click();
+    }
 
-
+    public void selectLoginMenu(){
+        driver.findElement(loginBtnLocator).click();
     }
 
 
