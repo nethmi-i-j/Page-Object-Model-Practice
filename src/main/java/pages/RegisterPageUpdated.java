@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -44,37 +43,45 @@ public class RegisterPageUpdated {
 
     // Methods
 
-    public void setFirstName(String firstName){
+    public RegisterPageUpdated setFirstName(String firstName){
         firstName_ele.sendKeys(firstName);
+        return this;
     }
 
-    public void setLastName(String lastName){
+    public RegisterPageUpdated setLastName(String lastName){
         lastName_ele.sendKeys(lastName);
+        return this;
     }
 
-    public void setEmail(String email){
+    public RegisterPageUpdated setEmail(String email){
         email_ele.sendKeys(email);
+        return this;
     }
 
-    public void selectCountry(){
+    public RegisterPageUpdated selectCountry(){
         Select dropDownCountry = new Select(countrySelect_ele);
         dropDownCountry.selectByIndex(2);
+        return this;
     }
 
-    public void SetUserName(String userName){
+    public RegisterPageUpdated SetUserName(String userName){
         userName_ele.sendKeys(userName);
+        return this;
     }
 
-    public void SetPassword(String password){
+    public RegisterPageUpdated SetPassword(String password){
         password_ele.sendKeys(password);
+        return this;
     }
 
-    public void setConfirmPassword(String confirmPassword){
+    public RegisterPageUpdated setConfirmPassword(String confirmPassword){
         confirmPassword_ele.sendKeys(confirmPassword);
+        return this;
     }
 
-    public void submit(){
+    public RegisterSuccessPageUpdated submit(){
         submitBtn_ele.click();
+        return new RegisterSuccessPageUpdated(driver);
     }
 
 

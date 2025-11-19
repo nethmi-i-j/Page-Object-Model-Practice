@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -28,8 +27,9 @@ public class HomePageUpdated {
        public WebElement registerBtn;
     */
 
-    public void selectRegisterMenu(){
+    public RegisterPageUpdated selectRegisterMenu(){
         registerBtn.click();
+        return new RegisterPageUpdated(driver);   // return the next page
     }
 
     public void selectLoginMenu(){
