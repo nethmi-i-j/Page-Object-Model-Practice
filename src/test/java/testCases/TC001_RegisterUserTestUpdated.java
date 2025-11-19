@@ -29,14 +29,14 @@ public class TC001_RegisterUserTestUpdated {
     @Test
     public void TC001(){
 
-//        RegisterUser();
-//        VerifyRegistrationSuccess();
+        RegisterUser();
+        VerifyRegistrationSuccess();
 
         // to enhance reusability
 
-        NewtoursCommonFunctions newtoursCommonFunctions = new NewtoursCommonFunctions(driver);
-        String actualText = newtoursCommonFunctions.RegisterUser("rose","david","abc@gmail.com","user123","pass123","pass123");
-        Assert.assertTrue(actualText.contains("Dear"),"Registration attempt failed");
+//        NewtoursCommonFunctions newtoursCommonFunctions = new NewtoursCommonFunctions(driver);
+//        String actualText = newtoursCommonFunctions.RegisterUser("rose","david","abc@gmail.com","user123","pass123","pass123");
+//        Assert.assertTrue(actualText.contains("Dear"),"Registration attempt failed");
 
     }
 
@@ -44,30 +44,25 @@ public class TC001_RegisterUserTestUpdated {
 
         HomePageUpdated homePageUpdated = new HomePageUpdated(driver);
         homePageUpdated.selectRegisterMenu();
-        //homePageUpdated.registerBtn.click();
 
-        //driver.findElement(homePage.registerBtnLocator).click(); ---> another way
-
-        RegisterPageUpdated registerPageUpdated = new RegisterPageUpdated(driver);
-        registerPageUpdated.setFirstName("lia");
-        registerPageUpdated.setLastName("rose");
-        registerPageUpdated.setEmail("test@gmail.com");
-        registerPageUpdated.selectCountry();
-        registerPageUpdated.SetUserName("user1");
-        registerPageUpdated.SetPassword("pass123");
-        registerPageUpdated.setConfirmPassword("pass123");
-        registerPageUpdated.submit();
+        RegisterPageUpdated registerPage = new RegisterPageUpdated(driver);
+        registerPage.setFirstName("lia");
+        registerPage.setLastName("rose");
+        registerPage.setEmail("test@gmail.com");
+        registerPage.selectCountry();
+        registerPage.SetUserName("user1");
+        registerPage.SetPassword("pass123");
+        registerPage.setConfirmPassword("pass123");
+        registerPage.submit();
     }
 
     public void VerifyRegistrationSuccess(){
 
-        RegisterSuccessPageUpdated registerSuccessPageUpdated = new RegisterSuccessPageUpdated(driver);
-        String actualText = registerSuccessPageUpdated.registerSuccessText();   //output---->Dear
+        RegisterSuccessPage registerSuccessPage = new RegisterSuccessPage(driver);
+        String actualText = registerSuccessPage.registerSuccessText();   //output---->Dear
         Assert.assertTrue(actualText.contains("Dear"),"Registration attempt failed");
-
-        /*to include testNG assertions into java class under the main folder
-                   it should update the testNG dependency by deleting scope line*/
     }
+
 
     @AfterMethod
     public void closeBrowser(){
